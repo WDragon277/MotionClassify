@@ -10,6 +10,9 @@
 * revision history 
     - 2021-11-11    Lee Seo Yong    최초 작성
 """
+from dataclasses import dataclass
+
+@dataclass
 class Model_Setting_value():
 
     layer = None,
@@ -17,6 +20,8 @@ class Model_Setting_value():
     activation = None,
     shape = None
 
+
+@dataclass
 class data_directory():
     directory = 'C:\\Users\\0614_\\Desktop\\root\\train',
     target_size = (430, 180),
