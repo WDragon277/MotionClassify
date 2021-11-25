@@ -27,10 +27,10 @@ from api.resource.v1.Img_classify import model
 
 def Model_setting():  # layer, window, activation, shape 모두 객체화 해서 model에 저장
 
-    motion_model = models.Sequential()
-    motion_model.add(layers.Conv2D(32, (7, 7), activation='relu', input_shape=(430, 180, 3)))
-    motion_model.add(layers.MaxPooling2D((2, 2)))
-    motion_model.add(layers.Conv2D(64, (7, 7), activation='relu'))
+    motion_model = models.Sequential() 
+    motion_model.add(layers.Conv2D(32, (7, 7), activation='relu', input_shape=(430, 180, 3))) #relu 함수를 이용
+    motion_model.add(layers.MaxPooling2D((2, 2))) #풀링
+    motion_model.add(layers.Conv2D(64, (7, 7), activation='relu'))#
     motion_model.add(layers.MaxPooling2D((2, 2)))
     motion_model.add(layers.Conv2D(128, (7, 7), activation='relu'))
     motion_model.add(layers.MaxPooling2D((2, 2)))
@@ -96,10 +96,10 @@ def model_save(model):  # 모델저장
 ##############
 
 def Model_test_result(history):  # 모델의 테스트 결과 출력
-    acc = history.history['acc']
-    vall_acc = history.history['val_acc']
-    loss = history.history['loss']
-    vall_loss = history.history['val_loss']
+    acc = history.history['acc'] #정확도 
+    vall_acc = history.history['val_acc'] #검증정확도
+    loss = history.history['loss'] #손실(오차) 
+    vall_loss = history.history['val_loss']#검증 손실
 
     epochs = range(1, len(acc) + 1)
 
